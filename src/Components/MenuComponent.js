@@ -1,9 +1,12 @@
 class MenuComponent {
 
 
-  constructor(choices, currentIndex = 0) {
+  constructor(choices, x = 500, y = 200, currentIndex = 0) {
     this.choices = choices
     this.currentIndex = currentIndex
+    this.x = x
+    this.y = y
+
   }
 
   preload(phaser) {
@@ -12,7 +15,7 @@ class MenuComponent {
   }
 
   create(phaser) {
-    this.pointer = phaser.game.add.sprite(500, 200, 'pointer');
+    this.pointer = phaser.game.add.sprite(this.x, this.y, 'pointer');
     this.cursors = phaser.game.input.keyboard.createCursorKeys();
 
     this.startPos = {x: this.pointer.x, y: this.pointer.y}
@@ -32,6 +35,7 @@ class MenuComponent {
     this.cursors.down.onDown.add(this.moveDown, this);
     this.cursors.up.onDown.add(this.moveUp, this);
 
+    return this
   }
 
   moveDown() {
