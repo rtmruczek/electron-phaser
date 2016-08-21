@@ -5,7 +5,7 @@ class Menu extends Phaser.State {
 
   constructor() {
     super();
-    this.components = [new MenuComponent()]
+    this.components = [new MenuComponent(['Attack', 'Magic', 'OTHER COOL STUFF'])]
   }
 
   preload() {
