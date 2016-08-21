@@ -11,6 +11,9 @@ class Boot extends Phaser.State {
   create() {
     this.game.input.maxPointers = 1;
 
+    //keep running on unfocus
+    this.game.stage.disableVisibilityChange = true;
+
     //setup device scaling
     if (this.game.device.desktop) {
       this.game.scale.pageAlignHorizontally = true;
@@ -24,6 +27,12 @@ class Boot extends Phaser.State {
       this.game.scale.pageAlignHorizontally = true;
       this.game.scale.setScreenSize(true);
     }
+
+    //setup gamepad
+    this.game.input.gamepad.start();
+    const pad = this.game.input.gamepad.pad1;
+
+
 
     this.initGlobalVariables();
 

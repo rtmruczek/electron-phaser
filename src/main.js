@@ -5,7 +5,7 @@
  import Gameover from './states/gameover';
 
 
-const game = new Phaser.Game(window.innerWidth, window.innerHeight, Phaser.AUTO, 'test-game-game');
+const game = new Phaser.Game(1600, 1000, Phaser.AUTO, 'test-game-game');
 
  game.state.add('boot', new Boot());
  game.state.add('game', new Game());
